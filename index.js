@@ -3,7 +3,7 @@
   */
 
  var program = require('commander');
- const child_process = require('child_process');
+ var child_process = require('child_process');
 
  function collect(val, memo) {
      memo.push(val);
@@ -28,7 +28,7 @@
 
 
  //查询vue-cli版本
- console.log(`search desktop ${cliName}-cli...`)
+ console.log(`search desktop ${cliName}-cli...`);
  child_process.exec(`${cliName == 'vue'?'vue':'build-react'} --version`, (error, stdout, stderr) => {
      console.log(error, stdout, stderr);
      if (error) {
@@ -65,9 +65,9 @@
  function useCli() {
      console.log(`open ${cliName}-cli...`);
      console.log(`start ${cliName} ${allArgs.join(' ')}`);
-     var workerProcess = child_process.exec(`start ${cliName == 'vue'?'vue':'build-react'} ${allArgs.join(' ')}`, (error, stdout, stderr) => {});//这里不对
+    child_process.exec(`start ${cliName == 'vue'?'vue':'build-react'} ${allArgs.join(' ')}`, (error, stdout, stderr) => {});//这里不对
      setTimeout(() => {
          console.log('please create your dir');
          process.exit();
-     }, 200)
+     }, 200);
  }
