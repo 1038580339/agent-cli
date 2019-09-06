@@ -37,7 +37,7 @@ console.log(allArgs);
 
 //查询vue-cli版本
 console.log(`search desktop ${cliName}-cli...`);
-child_process.exec(`${cliName == 'vue'?'vue':'build-react'} --version`, (error, stdout, stderr) => {
+child_process.exec(`${cliName == 'vue'?'vue':'create-react-app'} --version`, (error, stdout, stderr) => {
     console.log(error, stdout, stderr);
     if (error) {
         console.log(`not find ${cliName}-cli`);
@@ -56,7 +56,7 @@ child_process.exec(`${cliName == 'vue'?'vue':'build-react'} --version`, (error, 
 function installCli() {
     return new Promise((resolve, reject) => {
         console.log(`open install ${cliName}-cli`);
-        var ls = child_process.exec(cliName == 'vue' ? 'npm install -g @vue/cli' : 'npm install -g build-react', (error, stdout, stderr) => {
+        var ls = child_process.exec(cliName == 'vue' ? 'npm install -g @vue/cli' : 'npm install -g create-react-app', (error, stdout, stderr) => {
             console.log(error, stdout, stderr);
             //安装成功
             if (error) {
@@ -84,7 +84,7 @@ function installCli() {
 function useCli() {
     console.log(`open ${cliName}-cli...`);
     console.log(`start ${cliName} ${allArgs.join(' ')}`);
-    child_process.exec(`start ${cliName == 'vue'?'vue':'build-react'} ${allArgs.join(' ')}`, (error, stdout, stderr) => {}); //这里不对
+    child_process.exec(`start ${cliName == 'vue'?'vue':'create-react-app'} ${allArgs.join(' ')}`, (error, stdout, stderr) => {}); //这里不对
     setTimeout(() => {
         console.log('please create your dir');
         process.exit();
